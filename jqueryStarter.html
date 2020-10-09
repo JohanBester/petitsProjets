@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JQuery Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            div {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            a.test {
+                margin: 25px;
+                padding: 25px;
+                font-weight: bold;
+            }
+        </style>        
+    </head>
+    <body>
+        <div>
+            <a href="http://jquery.com/">jQuery</a>
+        </div>
+
+        <script>
+            $( document ).ready(function() {
+
+                $( "a" ).addClass( "test" );
+                $( "a" ).click(function( event ) {
+                    alert( "The link will no longer take you to jquery.com" );
+                    event.preventDefault();
+                });
+                
+            });
+        </script>
+    </body>
+</html>
