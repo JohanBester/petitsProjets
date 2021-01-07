@@ -1,0 +1,92 @@
+<!-- 
+
+    data-* attributes allow us to store extra information on standard, semantic HTML elements without other hacks
+
+    Any attribute on any element whose attribute name starts with data- is a data attribute.
+
+    for custom element-associated metadata, this is a great solution.
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Using Data Attributes</title>
+
+    <!--
+
+        As data attributes are HTML attributes, one can access them from CSS. 
+        Eg:- to show the parent data on the article, use generated content in CSS with the attr() function: 
+            article::before {
+                content: attr(data-parent);
+            }
+
+         Use the attribute selectors in CSS to change styles according to the data:
+            article[data-columns='3'] {
+                width: 400px;
+            }
+            article[data-columns='4'] {
+                width: 600px;
+            }
+        
+    -->
+
+    <style type="text/css">
+      article {
+        display: block;
+        background: #ccc;
+      }
+      article::before {
+        content: attr(data-parent);
+      }
+      article[data-columns="3"] {
+        width: 400px;
+      }
+      article[data-columns="4"] {
+        width: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <article
+      id="electriccars"
+      data-columns="3"
+      data-indexnumber="12314"
+      data-parent="cars"
+    ></article>
+
+    <!-- 
+
+    Reading the values of attributes out in JavaScript is simple. 
+    EG: -
+        const article = document.querySelector('#electric-cars');
+        article.dataset.columns // returns "3"
+        article.dataset.indexNumber // returns "12314"
+        article.dataset.parent // returns "cars"
+
+    -->
+
+    <script>
+      let article = document.querySelector("#electriccars"),
+        data = article.dataset;
+      alert(data.columns);
+      // data.columns -> "3"
+      // data.indexnumber -> "12314"
+      // data.parent -> "cars"
+
+      article.dataset.parent = "vehicles";
+      alert(data.parent);
+    </script>
+  </body>
+</html>
+
+<!--
+
+    Issues: -
+    Do not store content that should be visible and accessible in data attributes, because assistive technology may not access them. In addition, search crawlers may not index data attributes' values.
+
+    The main issues to consider are Internet Explorer support and performance.
+    
+-->
