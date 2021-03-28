@@ -55,6 +55,18 @@ table {
   text-align: left;
 }
 
+#playerform > select {
+  background-color: #fac43b;
+}
+
+#playerform > select > option {
+  background-color: #fac43b;
+}
+
+#questions {
+  color: blue;
+}
+
 .answer {
   background-color: #f1b0d3;
   border: none;
