@@ -1,4 +1,5 @@
 // Question 4
+//************
 // Write a function that counts the number of vowels in a string.
 
 // The vowels are "a", "e", "i", "o" & "u"
@@ -20,7 +21,11 @@ function findVowel(word) {
   //   }
   // });
 
+
+
+
   // Solution 2
+  //*************
   word = word.toLowerCase();
   // console.log("length", word.length);
   for (let i = 0; i < word.length; i++) {
